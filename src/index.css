@@ -1,0 +1,6 @@
+body { margin: 0; }
+* { box-sizing: border-box; }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2a3044; border-radius: 10px; }
+input:focus, select:focus { box-shadow: 0 0 0 2px rgba(245,158,11,0.3); }
