@@ -8,7 +8,7 @@ export function PsfHero({ bidPsf, actPsf }) {
   const diff = actPsf - bidPsf
   const col  = over ? TH.red : TH.green
   return (
-    <div style={{ display: "flex", gap: 28, alignItems: "flex-end" }}>
+    <div className="psf-hero" style={{ display: "flex", gap: 28, alignItems: "flex-end" }}>
       {[
         { label: "Bid", value: psf(bidPsf), color: TH.muted },
         { label: "Actual", value: psf(actPsf), color: col },

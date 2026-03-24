@@ -14,9 +14,9 @@ export function Dashboard({ projects, onSelect, onNewTakeoff }) {
   })()
 
   return (
-    <div style={{ padding: "32px 36px", maxWidth: 1080 }}>
+    <div className="page-pad" style={{ padding: "32px 36px", maxWidth: 1080 }}>
       {/* Header */}
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 28 }}>
+      <div className="dash-header" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 28 }}>
         <div>
           <h1 style={{ fontSize: 22, fontWeight: 500, color: TH.text, margin: 0 }}>Operations dashboard</h1>
           <div style={{ fontSize: 12, color: TH.muted, marginTop: 3 }}>Mar 17–23, 2025 · L&A Exterior Systems</div>
@@ -27,7 +27,7 @@ export function Dashboard({ projects, onSelect, onNewTakeoff }) {
       </div>
 
       {/* Stats */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 10, marginBottom: 24 }}>
+      <div className="stat-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 10, marginBottom: 24 }}>
         {[
           { label: "Active jobs",       value: active.length,              color: TH.amber, suffix: ""      },
           { label: "Active sqft",       value: totalSqft.toLocaleString(), color: TH.blue,  suffix: " sqft" },
@@ -49,6 +49,7 @@ export function Dashboard({ projects, onSelect, onNewTakeoff }) {
           <span style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.1em", color: TH.muted, fontWeight: 600 }}>All projects</span>
           <span style={{ fontSize: 11, color: TH.muted }}>{projects.length} jobs</span>
         </div>
+        <div className="project-table-wrap">
         {/* Col headers */}
         <div style={{ display: "grid", gridTemplateColumns: "160px 90px 80px 90px 100px 110px 1fr", padding: "8px 18px", borderBottom: `1px solid ${TH.border}` }}>
           {["Job", "Division", "Status", "Sqft", "Bid $/sqft", "Actual $/sqft", "Progress"].map(h => (
@@ -89,6 +90,7 @@ export function Dashboard({ projects, onSelect, onNewTakeoff }) {
             </div>
           )
         })}
+        </div>
       </Card>
     </div>
   )

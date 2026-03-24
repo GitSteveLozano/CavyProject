@@ -13,7 +13,7 @@ export function TimeTracking() {
   const activeJobs = PROJECTS.filter(p => p.status === "active")
 
   return (
-    <div style={{ padding: "32px 36px", maxWidth: 660 }}>
+    <div className="page-pad" style={{ padding: "32px 36px", maxWidth: 660 }}>
       <h1 style={{ fontSize: 22, fontWeight: 500, color: TH.text, margin: 0, marginBottom: 4 }}>Time tracking</h1>
       <div style={{ fontSize: 13, color: TH.muted, marginBottom: 28 }}>Supervisor clock-in · syncs to QBO for job costing</div>
 

@@ -4,3 +4,52 @@ body { margin: 0; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: #2a3044; border-radius: 10px; }
 input:focus, select:focus { box-shadow: 0 0 0 2px rgba(245,158,11,0.3); }
+
+/* ─── Responsive ─────────────────────────────────────────── */
+
+/* Sidebar: hidden on mobile, overlay when open */
+@media (max-width: 768px) {
+  .sidebar { display: none !important; }
+  .sidebar.open {
+    display: flex !important;
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    z-index: 100;
+    width: 220px;
+  }
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 99;
+  }
+  .mobile-header { display: flex !important; }
+
+  /* Stat cards: 2 cols */
+  .stat-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Project table: horizontal scroll */
+  .project-table-wrap { overflow-x: auto; }
+  .project-table-wrap > div { min-width: 700px; }
+
+  /* Detail: single column */
+  .detail-grid { grid-template-columns: 1fr !important; }
+
+  /* Page padding */
+  .page-pad { padding: 20px 16px !important; }
+
+  /* PSF Hero: wrap */
+  .psf-hero { flex-wrap: wrap; gap: 16px !important; }
+
+  /* Dashboard header */
+  .dash-header { flex-direction: column; gap: 12px; }
+
+  /* Bonus stats */
+  .bonus-stats { flex-wrap: wrap; gap: 12px !important; }
+  .bonus-stats > div { flex: 1; min-width: 80px; }
+}
+
+@media (max-width: 480px) {
+  .stat-grid { grid-template-columns: 1fr !important; }
+}

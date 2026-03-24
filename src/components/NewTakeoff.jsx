@@ -26,7 +26,7 @@ export function NewTakeoff({ onBack }) {
   ]
 
   return (
-    <div style={{ padding: "32px 36px", maxWidth: 660 }}>
+    <div className="page-pad" style={{ padding: "32px 36px", maxWidth: 660 }}>
       <button onClick={onBack} style={{ fontSize: 13, color: TH.muted, cursor: "pointer", marginBottom: 20, background: "none", border: "none", display: "flex", alignItems: "center", gap: 5 }}>
         ← Dashboard
       </button>

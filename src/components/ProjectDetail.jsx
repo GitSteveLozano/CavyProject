@@ -11,7 +11,7 @@ export function ProjectDetail({ project: p, onBack }) {
   const isOvr = hasD && m.psfVar > 0
 
   return (
-    <div style={{ padding: "32px 36px", maxWidth: 960 }}>
+    <div className="page-pad" style={{ padding: "32px 36px", maxWidth: 960 }}>
       <button onClick={onBack} style={{ fontSize: 13, color: TH.muted, cursor: "pointer", marginBottom: 20, background: "none", border: "none", display: "flex", alignItems: "center", gap: 5 }}>
         ← All projects
       </button>
@@ -47,7 +47,7 @@ export function ProjectDetail({ project: p, onBack }) {
         </Card>
       )}
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+      <div className="detail-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
         {/* LEFT col */}
         <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
           {/* Labor */}
@@ -130,7 +130,7 @@ export function ProjectDetail({ project: p, onBack }) {
           {hasD && p.targetSqftPerHr > 0 && (
             <Card>
               <SectionLabel>Crew performance — bonus tracker</SectionLabel>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 14, alignItems: "flex-end" }}>
+              <div className="bonus-stats" style={{ display: "flex", justifyContent: "space-between", marginBottom: 14, alignItems: "flex-end" }}>
                 {[
                   { label: "Target",  value: p.targetSqftPerHr.toFixed(2), color: TH.muted },
                   { label: "Actual",  value: m.avgSqftHr.toFixed(2),       color: m.avgSqftHr >= p.targetSqftPerHr ? TH.green : TH.amber },
