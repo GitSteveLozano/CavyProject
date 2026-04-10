@@ -8,6 +8,7 @@ export function useTimeTracking(projectId) {
   const [error, setError]     = useState(null)
 
   const fetchEntries = useCallback(async () => {
+    if (!supabase) { setLoading(false); return }
     setLoading(true)
     setError(null)
     try {
@@ -38,6 +39,7 @@ export function useLaborEntry() {
   const [error, setError]   = useState(null)
 
   const saveEntry = useCallback(async (entry) => {
+    if (!supabase) return null
     setSaving(true)
     setError(null)
     try {
@@ -57,6 +59,7 @@ export function useLaborEntry() {
   }, [])
 
   const confirmEntries = useCallback(async (rows) => {
+    if (!supabase) return false
     setSaving(true)
     setError(null)
     try {
@@ -82,6 +85,7 @@ export function useCrewSchedule(projectId, date) {
   const [loading, setLoading]   = useState(true)
 
   const fetchSchedule = useCallback(async () => {
+    if (!supabase) { setLoading(false); return }
     setLoading(true)
     try {
       const { data: sched, error: err } = await supabase
@@ -113,6 +117,7 @@ export function useConfirmedByDate(companyId, date) {
   const [error, setError]     = useState(null)
 
   const fetchConfirmed = useCallback(async () => {
+    if (!supabase) { setLoading(false); return }
     setLoading(true)
     setError(null)
     try {

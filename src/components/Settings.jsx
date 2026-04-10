@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 import { TH } from '../lib/theme'
 import { Card, Btn, SectionLabel } from './Atoms'
-import { supabase } from '../lib/supabase'
+import { supabase, isConfigured } from '../lib/supabase'
 
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL
-const QBO_CLIENT_ID = import.meta.env.VITE_QBO_CLIENT_ID
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL  || ''
+const QBO_CLIENT_ID = import.meta.env.VITE_QBO_CLIENT_ID || ''
 const COMPANY_ID = import.meta.env.VITE_COMPANY_ID || 'default'
 
 export function Settings() {
@@ -27,6 +27,7 @@ export function Settings() {
 
   // Check QBO connection status
   const checkQboStatus = async () => {
+    if (!isConfigured) { setLoading(false); return }
     setLoading(true)
     try {
       const { data, error: err } = await supabase
@@ -102,7 +103,13 @@ export function Settings() {
       {/* QBO Integration */}
       <SectionLabel>QuickBooks Online</SectionLabel>
 
-      {loading ? (
+      {!isConfigured ? (
+        <Card>
+          <div style={{ fontSize: 13, color: TH.muted }}>
+            Supabase is not configured. Set <code>VITE_SUPABASE_URL</code> and <code>VITE_SUPABASE_ANON_KEY</code> environment variables to enable integrations.
+          </div>
+        </Card>
+      ) : loading ? (
         <Card><div style={{ color: TH.muted, fontSize: 13 }}>Checking connection...</div></Card>
       ) : !qboInteg ? (
         <Card>
