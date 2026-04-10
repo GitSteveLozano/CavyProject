@@ -6,7 +6,7 @@ const NAV_ITEMS = [
   { id: "takeoff",   icon: "⬡",  label: "New takeoff"   },
   { id: "time",      icon: "◷",  label: "Time tracking" },
   { id: "reports",   icon: "↗",  label: "Reports", soon: true },
-  { id: "settings",  icon: "⚙",  label: "Settings", soon: true },
+  { id: "settings",  icon: "⚙",  label: "Settings" },
 ]
 
 export function MobileHeader({ onToggle }) {
